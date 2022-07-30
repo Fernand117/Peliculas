@@ -14,4 +14,8 @@ export class ApiServiceService {
   listaPeliculas() {
     return this.http.get(`${this.url}/discover/movie?api_key=${this.apiKey}&language=es&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_watch_monetization_types=flatrate`);
   }
+
+  listaGeneros() {
+    return this.http.get(`${this.url}/genre/movie/list?api_key=${this.apiKey}&language=es`);
+  }
 }

@@ -11,6 +11,9 @@ export class InicioComponent implements OnInit {
   result: any;
   jsonResult: any;
 
+  public jsonGenderResult: any;
+  public genders: any;
+
   constructor(
     private apiService: ApiServiceService
   ) { }
@@ -21,6 +24,14 @@ export class InicioComponent implements OnInit {
         this.jsonResult = res;
         this.result = this.jsonResult['results'];
         console.log(this.jsonResult['results']);
+      }
+    );
+
+    this.apiService.listaGeneros().subscribe(
+      res => {
+        this.jsonGenderResult = res;
+        this.genders = this.jsonGenderResult['genres'];
+        console.log(this.genders);
       }
     );
   }
